@@ -21,7 +21,7 @@ class App extends Component {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink to="/cars">Cars</NavLink>
+							<NavLink to={{ pathname: '/cars' }}>Cars</NavLink>
 						</li>
 					</ul>
 				</nav>

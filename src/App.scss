@@ -28,6 +28,11 @@ h1 {
 
 		li {
 			margin-right: 15px;
+
+			a.active, a.wfn-active {
+				font-weight: bold;
+				color: red;
+			}
 		}
 	}
 }

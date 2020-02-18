@@ -6,6 +6,7 @@ import Cars from './Cars/Cars'
 import CarDetail from './CarDetail/CarDetail'
 
 class App extends Component {
+	state = { isLoggedIn: false }
 	render() {
 		return (
 			<div>
@@ -28,11 +29,20 @@ class App extends Component {
 				</nav>
 
 				<hr />
+				<div style={{ textAlign: 'center' }}>
+					<h3>Is logged in {this.state.isLoggedIn ? 'TRUE' : 'FALSE'}</h3>
+					<button onClick={() => this.setState({ isLoggedIn: true })}>
+						Login
+					</button>
+				</div>
+				<hr />
 
 				{/*localhost:3000*/}
 				<Switch>
 					<Route path="/" exact render={() => <h1>Home Page</h1>} />
-					<Route path="/about" component={About} />
+					{this.state.isLoggedIn ? (
+						<Route path="/about" component={About} />
+					) : null}
 					<Route path="/cars/:name" component={CarDetail} />
 					<Route path="/cars" component={Cars} />
 					<Redirect to={'/'} />
